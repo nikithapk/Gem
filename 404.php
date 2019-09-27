@@ -130,6 +130,52 @@ body {
 	100% {margin-left: -1000px;}
 }
 </style>
+<script language="jscript" type="text/jscript" >
+
+    $(document).ready(function () {
+var elem = document.documentElement;
+if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+});
+
+</script>
+<script language="jscript" type="text/jscript" >
+
+    $(document).ready(function () {
+var elem = document.getElementById(hypeDocument.documentId());
+	
+	if (!document.fullscreenElement && !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement ) {
+		if (elem.requestFullscreen) {
+			elem.requestFullscreen();
+		} else if (elem.msRequestFullscreen) {
+			elem.msRequestFullscreen();
+		} else if (elem.mozRequestFullScreen) {
+			elem.mozRequestFullScreen();
+		} else if (elem.webkitRequestFullscreen) {
+			elem.webkitRequestFullscreen();
+		}
+	} else {
+		if (document.exitFullscreen) {
+			document.exitFullscreen();
+		} else if (document.msExitFullscreen) {
+			document.msExitFullscreen();
+		} else if (document.mozCancelFullScreen) {
+			document.mozCancelFullScreen();
+		} else if (document.webkitExitFullscreen) {
+			document.webkitExitFullscreen();
+		}
+	}
+});
+
+</script>
+
 <!--
 So we will have an animated background with 5 clouds moving across the screen.
 Steps: 
@@ -137,6 +183,7 @@ Steps:
 2. Animate them to move across the screen
 3. Stylize the clouds(can be done as step #2 also)
 -->
+<body>
 <div id="clouds">
 	<div class="cloud x1"></div>
 	<!-- Time for multiple clouds to dance around -->
@@ -145,6 +192,7 @@ Steps:
 	<div class="cloud x4"></div>
 	<div class="cloud x5"></div>
 </div>
+</body>
 <!-- Thats the markup! -->
 <!-- That looks cool. We are done!! -->
 </html>
